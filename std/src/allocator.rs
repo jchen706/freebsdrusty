@@ -29,15 +29,15 @@ unsafe impl GlobalAlloc for FreebsdAllocator {
     unsafe fn alloc(&self, _layout: Layout)-> *mut u8 {   
        //check alignment: 
 
-       
 
 
 
-       return  kernel::malloc(size as raw::c_size_t, &mut kernel::M_DEVBUF[0], kernel::M_WAITOK as i32) as *mut u8 
+
+       return  kernel::malloc( _layout.size() as raw::c_size_t, &mut kernel::M_DEVBUF[0], kernel::M_WAITOK as i32) as *mut u8 
     }
 
     unsafe fn dealloc(&self, ptr: *mut u8, _layout: Layout) {
-        kernel::free(ptr as *mut raw::c_void, &mut kern::M_DEVBUF[0]);
+        kernel::free(ptr as *mut raw::c_void, &mut kernel::M_DEVBUF[0]);
     }
 
 
