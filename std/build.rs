@@ -99,6 +99,10 @@ fn main() {
         .clang_arg("-mno-aes")
         .clang_arg("-mno-avx")
         .clang_arg("-std=iso9899:1999")
+        .clang_arg("sysroot=usr/include/")
+        .clang_arg("-I/usr/include/")
+        .clang_arg("-target")
+        .clang_arg("aarch64-unknown-freebsd")
         // Tell cargo to invalidate the built crate whenever any of the
         // included header files changed.
         .parse_callbacks(Box::new(bindgen::CargoCallbacks))

@@ -1,8 +1,8 @@
 //#include <bzlib.h>
 //#include<stdlib.h>
 //#include<stdint.h>
-#include <usr/include/sys/types.h>
-#include <usr/include/sys/module.h>
+#include <sys/types.h>
+#include <sys/module.h>
 //#include <sys/systm.h>  /* uprintf */
 #include <sys/param.h>  /* defines used in kernel.h */
 //#include <sys/kernel.h> /* types used in module initialization */
