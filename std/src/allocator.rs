@@ -5,7 +5,11 @@ use core::alloc::{GlobalAlloc, Layout};
 use core::fmt;
 use core::ptr;
 //use crate::mutex::Mutex;
-use ::os::kernel_malloc;
+use ::os::kernel_malloc as kernel;
+use ::os::align_file::MIN_ALIGN;
+
+use ::os::raw;
+
 
 
 
@@ -22,18 +26,18 @@ pub trait LocalAlloc {
 
 unsafe impl GlobalAlloc for FreebsdAllocator {
 
-    unsafe fn alloc(&self, _layout: Layout)-> *mut u8 {
-        ptr::null_mut()
+    unsafe fn alloc(&self, _layout: Layout)-> *mut u8 {   
+       //check alignment: 
 
-        
-
-
+       
 
 
+
+       return  kernel::malloc(size as raw::c_size_t, &mut kernel::M_DEVBUF[0], kernel::M_WAITOK as i32) as *mut u8 
     }
 
     unsafe fn dealloc(&self, ptr: *mut u8, _layout: Layout) {
-        panic!("hello")
+        kernel::free(ptr as *mut raw::c_void, &mut kern::M_DEVBUF[0]);
     }
 
 

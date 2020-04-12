@@ -96,6 +96,7 @@ extern crate alloc;
 pub mod lang;
 pub mod allocator;
 
+use alloc::boxed::Box;
 use crate::allocator::FreebsdAllocator;
 
 
@@ -107,7 +108,8 @@ static ALLOCATOR: FreebsdAllocator = FreebsdAllocator;
 fn start(_argc: isize, _argv:*const *const u8) -> isize {
 
     println!("Hello, start!");
-    //println!("Hello, start!")
+    let x = Box::new(41);
+    println!("Hello, alloc working!");
     //main();
 
     0

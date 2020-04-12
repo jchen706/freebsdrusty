@@ -21,7 +21,7 @@ const CLANG_HEADER_REQUIRED: [&'static str; 4] = [
 
 fn main() {
 
-    for(key,value) in env::vars(){println!("{}: {}", key, value);}
+    //for(key,value) in env::vars(){println!("{}: {}", key, value);}
     env::set_var("LIBCLANG_PATH", "/usr/local/llvm90/lib");
 
     // Tell cargo to tell rustc to link the system bzip2
@@ -31,24 +31,24 @@ fn main() {
     // Tell cargo to invalidate the built crate whenever the wrapper changes
     println!("cargo:rerun-if-changed=wrapper.h");
 
-    let filepath_header = FILENAME_HEADER.clone();
+    //let filepath_header = FILENAME_HEADER.clone();
 
-    match std::fs::File::create(filepath_header.clone()) {
-		Ok(mut file) => {
-			// Generate include lines for all requested headers
-			//for clang_file in clang_files.iter() {
-			//	writeln!(file, "#include <{}>", clang_file).unwrap();
-			//}
+ //    match std::fs::File::create(filepath_header.clone()) {
+	// 	Ok(mut file) => {
+	// 		// Generate include lines for all requested headers
+	// 		//for clang_file in clang_files.iter() {
+	// 		//	writeln!(file, "#include <{}>", clang_file).unwrap();
+	// 		//}
 			
-			// Generate include lines for headers required by linux-std itself
-			for clang_file in CLANG_HEADER_REQUIRED.iter() {
-				writeln!(file, "#include <{}>", clang_file).unwrap();
-			}
-		},
-		Err(error) => {
-			panic!("Failed to open file \"{}\": {}", filepath_header, error);
-		}
-	}
+	// 		// Generate include lines for headers required by linux-std itself
+	// 		for clang_file in CLANG_HEADER_REQUIRED.iter() {
+	// 			writeln!(file, "#include <{}>", clang_file).unwrap();
+	// 		}
+	// 	},
+	// 	Err(error) => {
+	// 		panic!("Failed to open file \"{}\": {}", filepath_header, error);
+	// 	}
+	// }
 
     // The bindgen::Builder is the main entry point
     // to bindgen, and lets you build up options for
@@ -99,10 +99,12 @@ fn main() {
         .clang_arg("-mno-aes")
         .clang_arg("-mno-avx")
         .clang_arg("-std=iso9899:1999")
+        //need these because clang can't find some header files
         .clang_arg("sysroot=usr/include/")
         .clang_arg("-I/usr/include/")
         .clang_arg("-target")
         .clang_arg("aarch64-unknown-freebsd")
+        .opaque_type("timex")
         // Tell cargo to invalidate the built crate whenever any of the
         // included header files changed.
         .parse_callbacks(Box::new(bindgen::CargoCallbacks))
