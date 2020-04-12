@@ -1,0 +1,22 @@
+[package]
+name    = "bsd_std"
+version = "0.1.0"
+
+
+# Generate bindings for kernel functions
+build = "build.rs"
+
+[lib]
+crate-type = ["staticlib"]
+
+[profile.dev]
+panic="abort"
+
+[profile.release]
+panic="abort"
+
+[build-dependencies]
+bindgen = "0.53.1"
+shlex   = "0.1"
+
+
