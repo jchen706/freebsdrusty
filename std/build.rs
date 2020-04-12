@@ -8,6 +8,8 @@ const FILEPATH_CODE: &'static str = "src/os/";
 
 
 fn main() {
+
+    for(key,value) in env::vars(){println!("{}: {}", key, value);}
     env::set_var("LIBCLANG_PATH", "/usr/local/llvm90/lib");
 
     // Tell cargo to tell rustc to link the system bzip2

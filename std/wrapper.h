@@ -1,6 +1,6 @@
 //#include <bzlib.h>
 //#include<stdlib.h>
-#include<stdint.h>
+//#include<stdint.h>
 #include <sys/types.h>
 #include <sys/module.h>
 //#include <sys/systm.h>  /* uprintf */
