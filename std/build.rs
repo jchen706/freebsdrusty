@@ -27,6 +27,14 @@ fn main() {
     // Tell cargo to tell rustc to link the system bzip2
     // shared library.
     //println!("cargo:rustc-link-lib=bz2");
+    println!("cargo:rustc-link-search=/usr/include/sys/");
+    println!("cargo:rustc-link-lib=param.h");
+    println!("cargo:rustc-link-lib=malloc.h");
+    println!("cargo:rustc-link-lib=types.h");
+    println!("cargo:rustc-link-lib=module.h");
+
+
+
 
     // Tell cargo to invalidate the built crate whenever the wrapper changes
     println!("cargo:rerun-if-changed=wrapper.h");
