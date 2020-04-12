@@ -1,7 +1,7 @@
 
-typedef u_long uintfptr_t;
+typedef unsigned long uintfptr_t;
 
-typedef u_long intrmask_t;
+typedef unsigned long intrmask_t;
 
 #include <sys/types.h>
 #include <sys/module.h>
