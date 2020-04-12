@@ -12,6 +12,12 @@ const FILEPATH_CODE: &'static str = "src/os/";
 const FILENAME_HEADER: &'static str = "src/os/kernel-include.rs";
 
 
+const CLANG_HEADER_REQUIRED: [&'static str; 4] = [
+	"usr/include/sys/types.h",
+	"usr/include/sys/module.h",
+	"sys/param.h",
+	"sys/malloc.h",
+];
 
 fn main() {
 
@@ -25,8 +31,9 @@ fn main() {
     // Tell cargo to invalidate the built crate whenever the wrapper changes
     println!("cargo:rerun-if-changed=wrapper.h");
 
+    let filepath_header = FILENAME_HEADER.clone();
 
-    match std::fs::File::create(FILENAME_HEADER.clone()) {
+    match std::fs::File::create(filepath_header.clone()) {
 		Ok(mut file) => {
 			// Generate include lines for all requested headers
 			//for clang_file in clang_files.iter() {
