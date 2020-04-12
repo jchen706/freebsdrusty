@@ -7,6 +7,8 @@
 #![allow(non_upper_case_globals)]
 #![allow(non_camel_case_types)]
 #![allow(non_snake_case)]
+#![allow(warnings, unused_variables, dead_code, improper_ctypes, non_camel_case_types, non_snake_case, non_upper_case_globals)]
+
 #![no_std]
 
 //const FILEPATH_CODE: &'static str = "src/os/kernel_sys.rs";
