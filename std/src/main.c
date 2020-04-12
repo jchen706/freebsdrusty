@@ -1,3 +1,8 @@
+
+typedef u_long uintfptr_t;
+
+typedef u_long intrmask_t;
+
 #include <sys/types.h>
 #include <sys/module.h>
 #include <sys/systm.h>  /* uprintf */
@@ -8,6 +13,10 @@
 #include <sys/malloc.h>
 #include <sys/kthread.h>
 #include <sys/unistd.h>//int start();
+
+
+
+
 
 int main() {
 

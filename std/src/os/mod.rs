@@ -7,5 +7,5 @@ pub mod kernel_malloc;
 #[allow(improper_ctypes, non_camel_case_types, non_snake_case, non_upper_case_globals)]
 //pub mod kernel;
 pub mod kernel_mallochelp;
-mod bindings
+mod bindings;
 
