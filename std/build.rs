@@ -2,9 +2,15 @@ extern crate bindgen;
 
 use std::env;
 use std::path::PathBuf;
+use std::io::Write;
+
 
 //place to dump the bind gen process
 const FILEPATH_CODE: &'static str = "src/os/";
+
+
+const FILENAME_HEADER: &'static str = "src/os/kernel-include.rs";
+
 
 
 fn main() {
@@ -18,6 +24,24 @@ fn main() {
 
     // Tell cargo to invalidate the built crate whenever the wrapper changes
     println!("cargo:rerun-if-changed=wrapper.h");
+
+
+    match std::fs::File::create(FILENAME_HEADER.clone()) {
+		Ok(mut file) => {
+			// Generate include lines for all requested headers
+			//for clang_file in clang_files.iter() {
+			//	writeln!(file, "#include <{}>", clang_file).unwrap();
+			//}
+			
+			// Generate include lines for headers required by linux-std itself
+			for clang_file in CLANG_HEADER_REQUIRED.iter() {
+				writeln!(file, "#include <{}>", clang_file).unwrap();
+			}
+		},
+		Err(error) => {
+			panic!("Failed to open file \"{}\": {}", filepath_header, error);
+		}
+	}
 
     // The bindgen::Builder is the main entry point
     // to bindgen, and lets you build up options for
