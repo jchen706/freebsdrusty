@@ -21,7 +21,7 @@ shlex   = "0.1"
 cc      = "1.0.46"
 
 [[bin]]
-path="lib.rs"
+path="src/lib.rs"
 name="lib"
 version= "0.1.0"
 test=false
