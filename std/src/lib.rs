@@ -9,7 +9,7 @@
 #![allow(non_snake_case)]
 #![no_std]
 
-const FILEPATH_CODE: &'static str = "src/os/kernel_sys.rs";
+//const FILEPATH_CODE: &'static str = "src/os/kernel_sys.rs";
 
 
 //home/john/Documents/freebsdrust/target/debug/build/project1-ff47afed9c4bf9de/out/bindings.rs
@@ -69,13 +69,6 @@ mod std {
 
 
 
-<<<<<<< Updated upstream
-//home/john/Documents/freebsdrust/target/debug/build/project1-ff47afed9c4bf9de/out/bindings.rs
-//include!(concat!(env!("OUT_DIR"), "/bindings.rs"));
-=======
->>>>>>> Stashed changes
-
-
 
 
 //#![feature(alloc_system)]
@@ -112,30 +105,28 @@ static ALLOCATOR: FreebsdAllocator = FreebsdAllocator;
 #[no_mangle]
 #[start]
 fn start(_argc: isize, _argv:*const *const u8) -> isize {
-<<<<<<< Updated upstream
+
     println!("Hello, start!");
-=======
-    //println!("Hello, start!");
->>>>>>> Stashed changes
+    //println!("Hello, start!")
     //main();
 
     0
 }
 
-<<<<<<< Updated upstream
+
 //#[no_mangle]
 //#[start]
 //fn main() {
 
  //    println!("Hello, world!");
 //}
-=======
+
 // #[no_mangle]
 // fn main() {
 
 // //     println!("Hello, world!");
 // }
->>>>>>> Stashed changes
+
 
 #[alloc_error_handler]
 fn alloc_error_handler(layout: alloc::alloc::Layout) -> ! {
