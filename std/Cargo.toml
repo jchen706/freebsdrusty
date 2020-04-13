@@ -20,10 +20,10 @@ bindgen = "0.53.1"
 shlex   = "0.1"
 cc      = "1.0.46"
 
-[[bin]]
-path="src/lib.rs"
-name="lib"
-version= "0.1.0"
-test=false
-bench=false
+#[[bin]]
+#path="src/lib.rs"
+#name="lib"
+#version= "0.1.0"
+#test=false
+#bench=false
 

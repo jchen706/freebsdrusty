@@ -1,0 +1,1 @@
+{"rustc":9710718672558620510,"features":"[\"clap\", \"default\", \"env_logger\", \"log\", \"logging\", \"runtime\", \"which\", \"which-rustfmt\"]","target":10088282520713642473,"profile":9935990280773120926,"path":11588178421162406021,"deps":[],"local":[{"Precalculated":"0.53.2"}],"rustflags":[],"metadata":12047033523087941064}

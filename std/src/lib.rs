@@ -8,7 +8,6 @@
 #![allow(non_camel_case_types)]
 #![allow(non_snake_case)]
 #![allow(warnings, unused_variables, dead_code, improper_ctypes, non_camel_case_types, non_snake_case, non_upper_case_globals)]
-
 #![no_std]
 
 //const FILEPATH_CODE: &'static str = "src/os/kernel_sys.rs";
@@ -109,12 +108,19 @@ static ALLOCATOR: FreebsdAllocator = FreebsdAllocator;
 #[start]
 fn start(_argc: isize, _argv:*const *const u8) -> isize {
 
-    println!("Hello, start!");
-    let x = Box::new(41);
-    println!("Hello, alloc working!");
+    //uprintln!("Hello, start!");
+    //let x = Box::new(41);
+    //println!("Hello, alloc working!");
     //main();
 
     0
+}
+
+#[no_mangle]
+pub extern "C" fn rust_function()-> isize {
+    uprintln("Hello, start!");
+    return 1;
+
 }
 
 

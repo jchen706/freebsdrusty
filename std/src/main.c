@@ -1,7 +1,8 @@
 
-typedef unsigned long uintfptr_t;
+//typedef to prevent errors in old sys declaration that has not been deleted by freebsd developers
+//typedef unsigned long uintfptr_t;
 
-typedef unsigned long intrmask_t;
+//typedef unsigned long intrmask_t;
 
 #include <sys/types.h>
 #include <sys/module.h>
@@ -15,13 +16,14 @@ typedef unsigned long intrmask_t;
 #include <sys/unistd.h>//int start();
 
 
+void rust_function();
 
 
 
 int main() {
 
     printf("Hello world!\n");
-    //printf("Number is %d.\n", start());
+    printf("Number is %d.\n", rust_function());
     return 0;
 
 }
