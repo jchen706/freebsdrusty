@@ -7,7 +7,7 @@ version = "0.1.0"
 build = "build.rs"
 
 [lib]
-crate-type = ["staticlib"]
+crate-type=["staticlib", "cdylib"]
 
 [profile.dev]
 panic="abort"
