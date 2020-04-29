@@ -22,16 +22,16 @@ const CLANG_HEADER_REQUIRED: [&'static str; 4] = [
 fn main() {
 
     //for(key,value) in env::vars(){println!("{}: {}", key, value);}
-    env::set_var("LIBCLANG_PATH", "/usr/local/llvm90/lib");
+    //env::set_var("LIBCLANG_PATH", "/usr/local/llvm90/lib");
 
     // Tell cargo to tell rustc to link the system bzip2
     // shared library.
     //println!("cargo:rustc-link-lib=bz2");
-    println!("cargo:rustc-link-search=/usr/include/sys/");
-    println!("cargo:rustc-link-lib=param.h");
-    println!("cargo:rustc-link-lib=malloc.h");
-    println!("cargo:rustc-link-lib=types.h");
-    println!("cargo:rustc-link-lib=module.h");
+    //println!("cargo:rustc-link-search=/usr/include/sys/");
+    //println!("cargo:rustc-link-lib=param.h");
+    //println!("cargo:rustc-link-lib=malloc.h");
+    //println!("cargo:rustc-link-lib=types.h");
+    //println!("cargo:rustc-link-lib=module.h");
 
 
 
@@ -71,8 +71,8 @@ fn main() {
         
         //clang args
         //need these because clang can't find some header files
-        .clang_arg("sysroot=usr/include/")
-        .clang_arg("-I/usr/include/")
+        //.clang_arg("sysroot=usr/include/")
+        //.clang_arg("-I/usr/include/")
    
         .derive_debug(false)
         .opaque_type("timex")
@@ -92,6 +92,6 @@ fn main() {
     //     .expect("Couldn't write bindings!");
     let out_path = PathBuf::from(FILEPATH_CODE);
     bindings
-        .write_to_file(out_path.join("bindings.rs"))
+        .write_to_file(out_path.join("bindings1.rs"))
         .expect("Couldn't write bindings!");
 }

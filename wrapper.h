@@ -10,3 +10,4 @@
 #include <sys/malloc.h>
 //#include <sys/kthread.h>
 //#include <sys/unistd.h>
+#include <sys/dev/mmcsd.c>

@@ -118,7 +118,7 @@ fn start(_argc: isize, _argv:*const *const u8) -> isize {
 
 #[no_mangle]
 pub extern "C" fn rust_function()-> isize {
-    uprintln("Hello, start!");
+    uprintf("aligned_malloc: using normal malloc!\n\0".as_ptr() as *const u8);
     return 1;
 
 }
